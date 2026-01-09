@@ -58,7 +58,12 @@
                 </div>
 
                 <div class="card">
-                    <h2>Live Agent Feed</h2>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h2 style="margin-bottom: 0;">Live Agent Feed</h2>
+                        <button id="clearFeed" class="settings-toggle-btn" style="padding: 0.2rem 0.6rem;">Clear
+                            Feed</button>
+                    </div>
                     <div id="feed" class="feed-container">
                         <!-- Messages will appear here -->
                         <div class="bot-msg message-bubble">
@@ -71,7 +76,12 @@
             <!-- Right Side: Analytics and Escalation -->
             <div class="insights-zone">
                 <div class="card" style="margin-bottom: 2rem;">
-                    <h2>Real-time Analytics</h2>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h2 style="margin-bottom: 0;">Real-time Analytics</h2>
+                        <button id="exportStats" class="settings-toggle-btn"
+                            style="padding: 0.2rem 0.6rem;">Export</button>
+                    </div>
                     <div class="stats-grid">
                         <div class="stat-item">
                             <span id="totalMsg" class="stat-value">0</span>

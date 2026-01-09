@@ -180,6 +180,15 @@ button:active {
     border-color: var(--primary-color);
 }
 
+.feed-container {
+    height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1rem 0.5rem;
+}
+
 .feed-container::-webkit-scrollbar {
     width: 6px;
 }
@@ -190,9 +199,14 @@ button:active {
 }
 
 .message-bubble {
-    padding: 1rem;
-    border-radius: 0.75rem;
-    max-width: 85%;
+    padding: 0.75rem 1.25rem;
+    border-radius: 1.25rem;
+    max-width: 80%;
+    width: fit-content;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     animation: slideIn 0.3s ease-out;
 }
 
@@ -210,16 +224,17 @@ button:active {
 
 .user-msg {
     align-self: flex-end;
-    background: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color), #6366f1);
     color: white;
-    border-bottom-right-radius: 2px;
+    border-bottom-right-radius: 4px;
 }
 
 .bot-msg {
     align-self: flex-start;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     border: 1px solid var(--glass-border);
-    border-bottom-left-radius: 2px;
+    color: var(--text-color);
+    border-bottom-left-radius: 4px;
 }
 
 .intent-tag {

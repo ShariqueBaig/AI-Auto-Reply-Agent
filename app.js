@@ -16,6 +16,9 @@ const toggleSettingsBtn = document.getElementById('toggleSettings');
 const apiKeyInput = document.getElementById('apiKeyInput');
 const saveApiKeyBtn = document.getElementById('saveApiKey');
 
+const clearFeedBtn = document.getElementById('clearFeed');
+const exportStatsBtn = document.getElementById('exportStats');
+
 // Load existing key into input
 if (CONFIG.GEMINI_API_KEY) {
     apiKeyInput.value = CONFIG.GEMINI_API_KEY;
@@ -33,6 +36,20 @@ saveApiKeyBtn.addEventListener('click', () => {
         alert('API Key saved locally!');
         settingsPanel.classList.remove('active');
     }
+});
+
+clearFeedBtn.addEventListener('click', () => {
+    feed.innerHTML = '<div class="bot-msg message-bubble">Feed cleared. Start typing above!</div>';
+});
+
+exportStatsBtn.addEventListener('click', () => {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({ stats, escalations }, null, 2));
+    const downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", "ai_agent_stats.json");
+    document.body.appendChild(downloadAnchorNode);
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
 });
 
 // --- 2. INTENT DETECTION ---
