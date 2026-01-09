@@ -1,0 +1,15 @@
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Local configuration
+logic/config.js
+
+# Temp files
+*.tmp
+*.log

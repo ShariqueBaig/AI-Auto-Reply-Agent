@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Auto-Reply Agent | Smart Commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Auto-Reply Agent</h1>
+            <p class="subtitle">Instagram & WhatsApp Comment Simulation</p>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Left Side: Interaction and Feed -->
+            <div class="interaction-zone">
+                <div class="card" style="margin-bottom: 2rem;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h2 style="margin-bottom: 0;">New Comment</h2>
+                        <div class="ai-toggle-container">
+                            <span>Use Gemini AI</span>
+                            <label class="switch">
+                                <input type="checkbox" id="aiToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="commentInput"
+                            placeholder="Type a customer comment here (e.g., 'How much for this?')" autocomplete="off">
+                        <button id="sendBtn">Process</button>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-dim);">Try: "Price?", "When is delivery?", "This is
+                        broken", "Hi there!"</p>
+                </div>
+
+                <div class="card">
+                    <h2>Live Agent Feed</h2>
+                    <div id="feed" class="feed-container">
+                        <!-- Messages will appear here -->
+                        <div class="bot-msg message-bubble">
+                            Welcome! Post a comment above to see the AI agent in action.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Analytics and Escalation -->
+            <div class="insights-zone">
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h2>Real-time Analytics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span id="totalMsg" class="stat-value">0</span>
+                            <span class="stat-label">Total</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="autoReplied" class="stat-value" style="color: var(--success);">0</span>
+                            <span class="stat-label">Replied</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="escalated" class="stat-value" style="color: var(--danger);">0</span>
+                            <span class="stat-label">Escalated</span>
+                        </div>
+                    </div>
+
+                    <div class="intent-list" id="intentStats">
+                        <!-- Intent bars will appear here -->
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Escalation Queue</h2>
+                    <div class="escalation-list" id="escalationQueue">
+                        <!-- Escalated items here -->
+                        <p style="color: var(--text-dim); font-size: 0.9rem; text-align: center; margin-top: 1rem;">No
+                            pending escalations.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
