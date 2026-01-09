@@ -123,14 +123,61 @@ button:active {
     transform: scale(0.95);
 }
 
-/* Feed Section */
-.feed-container {
-    height: 400px;
-    overflow-y: auto;
+/* Settings Panel */
+.settings-panel {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid var(--glass-border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    display: none;
+    /* Hidden by default */
+}
+
+.settings-panel.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.settings-header {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding-right: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.settings-header h3 {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.settings-toggle-btn {
+    background: none;
+    border: 1px solid var(--glass-border);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.settings-toggle-btn:hover {
+    color: var(--text-color);
+    border-color: var(--primary-color);
 }
 
 .feed-container::-webkit-scrollbar {

@@ -14,9 +14,24 @@
 <body>
     <div class="container">
         <header>
-            <h1>AI Auto-Reply Agent</h1>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; position: relative;">
+                <h1>AI Auto-Reply Agent</h1>
+                <button id="toggleSettings" class="settings-toggle-btn">⚙️ Settings</button>
+            </div>
             <p class="subtitle">Instagram & WhatsApp Comment Simulation</p>
         </header>
+
+        <div id="settingsPanel" class="settings-panel">
+            <div class="settings-header">
+                <h3>Gemini API Configuration</h3>
+            </div>
+            <div class="input-group">
+                <input type="password" id="apiKeyInput" placeholder="Enter your Gemini API Key here...">
+                <button id="saveApiKey" style="padding: 0.5rem 1rem;">Save</button>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--text-dim);">Your key is saved locally in your browser and will
+                never be uploaded to GitHub.</p>
+        </div>
 
         <main class="dashboard-grid">
             <!-- Left Side: Interaction and Feed -->

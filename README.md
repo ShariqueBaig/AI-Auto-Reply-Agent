@@ -24,15 +24,12 @@ A premium, AI-powered customer support simulation designed to monitor and automa
 - A Google AI Studio API Key. Get one at [aistudio.google.com](https://aistudio.google.com/).
 
 ### 2. Configure API Key
-Open `app.js` and locate the `CONFIG` object at the top:
+The application handles API keys securely via the **Settings** panel:
+1. Open `index.html` in your browser.
+2. Click the **⚙️ Settings** button at the top.
+3. Paste your Gemini API Key and click **Save**.
 
-```javascript
-const CONFIG = {
-    GEMINI_API_KEY: 'YOUR_API_KEY_HERE',
-    // ...
-};
-```
-Replace `'YOUR_API_KEY_HERE'` with your actual API key.
+> **🛡️ Security Note**: Your API key is stored locally in your browser's `localStorage`. It is **never** hardcoded in the files or committed to GitHub.
 
 ### 3. Run the Application
 Simply open `index.html` in any modern web browser.

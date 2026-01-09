@@ -6,9 +6,34 @@
 
 // --- 1. CONFIGURATION ---
 const CONFIG = {
-    GEMINI_API_KEY: 'AIzaSyBI3kbxQy8AOQWnCcg_MsP-bF4VJ35UxYU',
+    GEMINI_API_KEY: localStorage.getItem('GEMINI_API_KEY') || '',
     GEMINI_URL: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent'
 };
+
+// --- 2. SETTINGS MANAGEMENT ---
+const settingsPanel = document.getElementById('settingsPanel');
+const toggleSettingsBtn = document.getElementById('toggleSettings');
+const apiKeyInput = document.getElementById('apiKeyInput');
+const saveApiKeyBtn = document.getElementById('saveApiKey');
+
+// Load existing key into input
+if (CONFIG.GEMINI_API_KEY) {
+    apiKeyInput.value = CONFIG.GEMINI_API_KEY;
+}
+
+toggleSettingsBtn.addEventListener('click', () => {
+    settingsPanel.classList.toggle('active');
+});
+
+saveApiKeyBtn.addEventListener('click', () => {
+    const newKey = apiKeyInput.value.trim();
+    if (newKey) {
+        localStorage.setItem('GEMINI_API_KEY', newKey);
+        CONFIG.GEMINI_API_KEY = newKey;
+        alert('API Key saved locally!');
+        settingsPanel.classList.remove('active');
+    }
+});
 
 // --- 2. INTENT DETECTION ---
 const INTENTS = {
@@ -60,6 +85,14 @@ const trackMessage = (intent, wasEscalated) => {
 
 // --- 5. GEMINI SERVICE ---
 const callGemini = async (userComment) => {
+    if (!CONFIG.GEMINI_API_KEY) {
+        return {
+            reply: "Please click the ⚙️ Settings button and enter your Gemini API Key to use the AI features.",
+            escalated: false,
+            intent: 'ERROR'
+        };
+    }
+
     const prompt = `
         You are an AI customer support agent for an Instagram/WhatsApp business.
         Your goal is to reply to customer comments professionally and helpfuly.
